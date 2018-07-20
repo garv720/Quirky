@@ -12,24 +12,22 @@
         android:textSize="30sp"
         android:hint="Enter Task Name!"
         android:layout_margin="10dp"/>
-    <EditText
+    <TextView
         android:id="@+id/datePicker"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="30sp"
         android:hint="Enter Date!"
         android:clickable="true"
-        android:editable="false"
         android:layout_margin="10dp"/>
 
-    <EditText
+    <TextView
         android:id="@+id/timePicker"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="30sp"
         android:hint="Enter Time!"
         android:clickable="true"
-        android:editable="false"
         android:layout_margin="10dp"/>
 
     <Button

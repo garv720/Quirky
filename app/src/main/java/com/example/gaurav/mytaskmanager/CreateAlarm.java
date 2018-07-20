@@ -13,14 +13,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.util.Calendar;
 
 public class CreateAlarm extends AppCompatActivity {
-    private EditText time;
-    private EditText date;
+    private TextView time;
+    private TextView date;
     private Button create;
     private PendingIntent pendingIntent;
     private EditText taskName;
@@ -37,8 +38,8 @@ public class CreateAlarm extends AppCompatActivity {
     }
 
     private void init() {
-        time = (EditText)findViewById(R.id.timePicker);
-        date = (EditText)findViewById(R.id.datePicker);
+        time = (TextView)findViewById(R.id.timePicker);
+        date = (TextView)findViewById(R.id.datePicker);
         taskName = (EditText)findViewById(R.id.createTaskName);
         create = (Button)findViewById(R.id.create);
 
