@@ -13,13 +13,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.util.Calendar;
+import java.util.Date;
 
 public class CreateAlarm extends AppCompatActivity {
+    private ImageView timeIcon;
+    private ImageView dateIcon;
     private TextView time;
     private TextView date;
     private Button create;
@@ -38,14 +42,16 @@ public class CreateAlarm extends AppCompatActivity {
     }
 
     private void init() {
-        time = (TextView)findViewById(R.id.timePicker);
-        date = (TextView)findViewById(R.id.datePicker);
+        timeIcon = (ImageView)findViewById(R.id.timePicker);
+        dateIcon = (ImageView)findViewById(R.id.datePicker);
+        time = (TextView)findViewById(R.id.setTime);
+        date = (TextView)findViewById(R.id.setDate);
         taskName = (EditText)findViewById(R.id.createTaskName);
         create = (Button)findViewById(R.id.create);
 
         final Calendar calendar = Calendar.getInstance();
 
-        date.setOnClickListener(new View.OnClickListener() {
+        dateIcon.setOnClickListener(new View.OnClickListener() {
             public DatePickerDialog datePicker;
             @Override
             public void onClick(View v) {
@@ -59,7 +65,7 @@ public class CreateAlarm extends AppCompatActivity {
                 }
         });
 
-        time.setOnClickListener(new View.OnClickListener() {
+        timeIcon.setOnClickListener(new View.OnClickListener() {
             public TimePickerDialog timePicker;
 
             @Override
@@ -83,8 +89,9 @@ public class CreateAlarm extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 task = String.valueOf(taskName.getText());
-                AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
-                alarmManager.set(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),pendingIntent);
+
+                AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+                alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
                 finish();
                 Toast.makeText(context, "Task created!", Toast.LENGTH_LONG).show();
             }
