@@ -18,18 +18,19 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         public MyViewHolder(View itemView) {
             super(itemView);
 
-            task = (TextView)itemView.findViewById(R.id.taskName);
-            time = (TextView)itemView.findViewById(R.id.taskTime);
+            task = (TextView) itemView.findViewById(R.id.taskName);
+            time = (TextView) itemView.findViewById(R.id.taskTime);
         }
     }
 
     public MyAdapter(List<Alarm> alarmList) {
         this.alarmList = alarmList;
     }
+
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.alarm_list,parent,false);
+                .inflate(R.layout.alarm_list, parent, false);
         return new MyViewHolder(view);
 
     }

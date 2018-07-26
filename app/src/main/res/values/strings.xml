@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">MyTaskManager</string>
+    <string name="app_name">Quirky</string>
+    <string name="task_name">Enter Task Name</string>
+    <string name="date">Choose Date</string>
+    <string name="time">Choose Time</string>
+    <string name="create_btn">Create Task</string>
+    <string name="stop_alarm">Stop</string>
 </resources>

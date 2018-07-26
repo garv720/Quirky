@@ -15,7 +15,7 @@
         <TextView
             android:id="@+id/msg"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:textSize="30sp"
             android:layout_weight="1"
             android:textColor="#000"
@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
-            android:text="Stop Alarm"
+            android:text="@string/stop_alarm"
             android:layout_gravity="center_horizontal"/>
     </LinearLayout>
 </LinearLayout>

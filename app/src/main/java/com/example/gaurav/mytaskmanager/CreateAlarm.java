@@ -18,8 +18,11 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 public class CreateAlarm extends AppCompatActivity {
     private ImageView timeIcon;
@@ -61,6 +64,7 @@ public class CreateAlarm extends AppCompatActivity {
                             date.setText(dayOfMonth+"/"+month+"/"+year);
                         }
                     }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+                datePicker.getDatePicker().setMinDate(calendar.get(Calendar.YEAR));
                     datePicker.show();
                 }
         });
@@ -75,7 +79,18 @@ public class CreateAlarm extends AppCompatActivity {
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                         calendar.set(calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH)
                                 ,hourOfDay,minute,0);
-                        time.setText(hourOfDay+":"+minute);
+                        if (hourOfDay >= 12 ){
+                            if (hourOfDay == 12)
+                                time.setText(12+":"+minute+" PM");
+                            else
+                                time.setText(hourOfDay-12+":"+minute+" PM");
+                        }
+                        else {
+                            if (hourOfDay == 0)
+                                time.setText(12+":"+minute+" AM");
+                            else
+                            time.setText(hourOfDay+":"+minute+" AM");
+                        }
                     }
                 },calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), false);
                 timePicker.show();
