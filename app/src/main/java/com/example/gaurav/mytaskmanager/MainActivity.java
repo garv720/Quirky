@@ -1,5 +1,8 @@
 package com.example.gaurav.mytaskmanager;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -61,5 +64,29 @@ public class MainActivity extends AppCompatActivity {
         alarmList.add(alarm);
 
         mAdapter.notifyDataSetChanged();
+    }
+
+    public void createDailog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
+        builder
+                .setTitle("Alarm")
+                .setMessage(CreateAlarm.task)
+                .setPositiveButton("GoTo Alarm", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent i = new Intent(MainActivity.this, StopAlarm.class);
+                        startActivity(i);
+                        finish();
+                    }
+                })
+                .setNegativeButton("Stop", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        AlarmReceiver.mp.stop();
+                        finish();
+                    }
+                })
+                .setIcon(R.drawable.alarm_icon)
+                .show();
     }
 }

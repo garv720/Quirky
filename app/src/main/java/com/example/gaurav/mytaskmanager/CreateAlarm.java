@@ -1,10 +1,12 @@
 package com.example.gaurav.mytaskmanager;
 
 import android.app.AlarmManager;
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -107,9 +109,10 @@ public class CreateAlarm extends AppCompatActivity {
 
                 AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
                 alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
-                finish();
                 Toast.makeText(context, "Task created!", Toast.LENGTH_LONG).show();
+                finish();
             }
         });
     }
+
 }
